@@ -1,0 +1,56 @@
+{
+  "name": "wfresume",
+  "version": "1.0.0",
+  "description": "Resume for Walter Flaschka",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wflaschka/wfresume.git"
+  },
+  "keywords": [
+    "html",
+    "website",
+    "resume"
+  ],
+  "author": "Walter Flaschka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wflaschka/wfresume/issues"
+  },
+  "homepage": "https://github.com/wflaschka/wfresume#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-buffer": "0.0.2",
+    "gulp-clean-css": "^3.8.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-debug": "^3.1.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-include": "^2.3.1",
+    "gulp-less": "^3.3.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^8.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-shell": "^0.6.3",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "less-plugin-autoprefix": "^1.5.1",
+    "path": "^0.12.7",
+    "relative": "^3.0.2",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.1.0",
+    "sassdoc": "^2.3.0",
+    "semantic-ui": "^2.2.13"
+  }
+}
