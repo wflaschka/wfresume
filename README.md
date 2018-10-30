@@ -1,5 +1,8 @@
 # wfresume
+
 Resume page for WF
+
+PLESK "file system" manual upload for google cloud.
 
 
 ```sh
