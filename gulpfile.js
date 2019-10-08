@@ -1,25 +1,15 @@
-// wflaschka 20170915
+// wflaschka 20170915 20191008
 // gulp watch
 
 var gulp                 = require('gulp');
 var path                 = require('path');
-var concat               = require('gulp-concat');
 var del                  = require('del');
-var relative             = require('relative');
-var debug                = require('gulp-debug');
-var runSequence          = require('run-sequence');
 var sass                 = require('gulp-sass');
 var sourcemaps           = require('gulp-sourcemaps');
-var autoprefixer         = require('gulp-autoprefixer');
-var sassdoc              = require('sassdoc');
 var util                 = require("gulp-util"); // https://github.com/gulpjs/gulp-util
 var log                  = util.log;
-var less                 = require('gulp-less');
-var cleancss             = require('gulp-clean-css');
-var csscomb              = require('gulp-csscomb');
 var rename               = require('gulp-rename');
-var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-var autoprefix           = new LessPluginAutoPrefix({ browsers: ["last 4 versions"] });
+
 
 // Paths
 var rootTarget           = 'dist/';
@@ -47,23 +37,17 @@ var paths = {
 		rootSource + 'assets/fonts/font-mfizz.*'
 		// '!' + rootSource + 'assets/fonts/font-awesome',
 	],
-	pdfs: [
-		rootSource    + 'assets/pdfs/**/*'
-	],
 	images: [
 		rootSource    + 'assets/images/**/*.*'
 	],
 	sass: [
         rootSource    + 'assets/styles/site.scss'
     ],
-    less: [
-		'./semantic/src/semantic.less'
+    semanticui: [
+		'./Semantic-UI-2.2.13/dist/semantic.min.css'
 	],
 	html: [
 		rootSource    + '**/*.htm?'
-	],
-	shell: [
-		rootSource + '**/*.sh'
 	]
 };
 
@@ -71,9 +55,6 @@ var paths = {
 var sassOptions = {
   errLogToConsole: true,
   outputStyle: 'expanded'
-};
-var autoprefixerOptions = {
-  browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
 var sassdocOptions = {
   dest: buildTargets.styles + '/sassdoc'
@@ -100,17 +81,16 @@ gulp.task('styles', function () {
 
 // SASS
 gulp.task('sass', function () {
-	log("    - Generate CSS files " + (new Date()).toString());
-	log("    - Reading from: " + paths.sass);
-	log("    - Writing to: " + buildTargets.styles);
-
+	// log("    - Generate CSS files " + (new Date()).toString());
+	// log("    - Reading from: " + paths.sass);
+	// log("    - Writing to: " + buildTargets.styles);
 	return gulp
 		.src(paths.sass)
 		.pipe(sourcemaps.init())
 		.pipe(sass(sassOptions).on('error', sass.logError))
 		.pipe(sourcemaps.write('/maps'))
 		.pipe(gulp.dest(buildTargets.styles))
-		.pipe(sassdoc(sassdocOptions))
+		// .pipe(sassdoc(sassdocOptions))
 		.resume();
 });
 
@@ -118,12 +98,6 @@ gulp.task('sass', function () {
 gulp.task('images', function() {
 	return gulp.src(paths.images)
 		.pipe(gulp.dest(buildTargets.images));
-});
-
-// PDFs
-gulp.task('pdfs', function() {
-	return gulp.src(paths.pdfs)
-		.pipe(gulp.dest(buildTargets.pdfs));
 });
 
 // HTML
@@ -138,54 +112,31 @@ gulp.task('fonts', function() {
 		.pipe(gulp.dest(buildTargets.fonts));
 });
 
-// Shell scripts
-gulp.task('shell', function() {
-	return gulp.src(paths.shell)
-		.pipe(gulp.dest(buildTargets.shell));
+// semanticui CSS
+gulp.task('semanticui', function() {
+	// // Build semantic-ui (actually fomantic-ui now) separately
+	// // and just copy to dest
+	// return gulp.src(paths.semanticui)
+	// 	.pipe(gulp.dest(buildTargets.styles));
+	//
+	// Don't even build separately; version drift has broken the layout
+	// Stick to SUI 2.2.13
+	return gulp.src(paths.semanticui)
+		.pipe(gulp.dest(buildTargets.styles));
 });
 
-// Less CSS
-gulp.task('less', function() {
-    gulp.src(paths.less)
-        .pipe(less({
-            plugins: [autoprefix]
-        }))
-        .pipe(csscomb())
-        .pipe(gulp.dest(buildTargets.styles))
-        .pipe(cleancss())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest(buildTargets.styles))
-});
 
-gulp.task('materializeJs', function() {
-	return gulp.src(paths.materializeJs)
-		.pipe(sourcemaps.init())
-			.pipe(concat('materialize.js'))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(buildTargets.scripts));
-});
+gulp.task('watchpaths', function(){
+	gulp.watch(paths.html, gulp.series('html'))
+	gulp.watch(paths.scripts, gulp.series('scripts'))
+	gulp.watch(paths.styles, gulp.series('styles'))
+	gulp.watch(paths.semanticui, gulp.series('semanticui'))
+	gulp.watch(paths.fonts, gulp.series('fonts'))
+	gulp.watch(paths.sass, gulp.series('sass'))
+	gulp.watch(paths.scripts, gulp.series('scripts'))
+})
 
-gulp.task('watch', ['all'], function() {
-	gulp.watch(paths.images, ['images']);
-	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.styles, ['styles']);
-	gulp.watch(paths.less, ['less']);
-	gulp.watch(paths.html, ['html']);
-	gulp.watch(paths.fonts, ['fonts']);
-	gulp.watch(rootSource + '**/*.scss', ['sass']);
-	gulp.watch(rootSource + '**/*.sass', ['sass']);
-	gulp.watch(rootSource + '**/*.less', ['less']);
-});
+gulp.task('all', gulp.series('clean', 'images', 'scripts', 'styles', 'semanticui', 'sass', 'html', 'fonts'))
 
-gulp.task('all', function(callback) {
-    runSequence(
-        'clean', 'images', 'scripts', 'styles',
-        'less', 'sass', 'html', 
-        'fonts',
-        callback
-    );
-});
-
-gulp.task('default', ['watch']);
+// gulp.task('default', gulp.series('watch'));
+gulp.task('watch', gulp.series('all', 'watchpaths'))
