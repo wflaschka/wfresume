@@ -25,6 +25,14 @@
 					wflaschka@gmail.com
 				</a>
 			</div>
+			<div class="sub header">
+				<i class="linkedin icon"></i>
+				<a target="_blank" href="https://www.linkedin.com/in/walter-flaschka">LinkedIn</a> for resume and portfolio
+			</div>
+			<div class="sub header">
+				<i class="github icon"></i>
+				<a target="_blank" href="https://www.github.com/wflaschka">Github</a> projects
+			</div>
 		</h1>
 	</div>
 
@@ -35,19 +43,19 @@
 				<div class="ui large list">
 					<div class="item">
 						<i class="bullhorn icon"></i>
-						Native English speaker
+						<div class="content">Native English speaker</div>
 					</div>
 					<div class="item">
 						<i class="pencil square icon"></i>
-						Strong communication (English degree)
+						<div class="content">Strong communication (English degree)</div>
 					</div>
 					<div class="item">
 						<i class="clock outline icon"></i>
-						Based in US Central Time
+						<div class="content">Based in US Central Time</></div>
 					</div>
 					<div class="item">
 						<i class="superpowers icon"></i>
-						M.S. Intelligence Analysis (Data / Viz)
+						<div class="content">M.S. Intelligence Analysis (Data / Viz)</div>
 					</div>
 				</div>
 
@@ -56,8 +64,8 @@
 
 				<div class="ui piled segment">
 					<p>
-						If you don't see a desired skillset below, please ask. Over many years in this industry I have touched almost every technology: there's a fair chance I'll know what you're talking about, or have done something similar.
-						I've found that having a variety of lateral skills results in shorter spin-up times for new projects and faster acquisition of new technologies.
+						If you don't see a desired skillset below, please ask. Over many years in this industry, I have touched almost every technology. There's a fair chance I'll know what you're talking about!
+						<!-- I've found that having a variety of lateral skills results in shorter spin-up times for new projects and faster acquisition of new technologies. -->
 					</p>
 				</div>
 
@@ -68,40 +76,155 @@
 	<table class="ui definition table">
 		<tbody>
 			<tr>
-				<td class="three wide column">Recent engagements</td>
+				<td class="three wide column" valign="top">Recent engagements</td>
 				<td>
 
-					<a href="http://www.walterblaire.com" target="_blank" class="recent-engagements ui labeled button" tabindex="0">
-						<div class="ui large violet button">
-							<i class="book icon"></i> walterblaire.com
+					<!-- Icons -->
+					<!-- https://semantic-ui.com/elements/icon.html#/icon -->
+					<div class="ui feed">
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted violet circular linkify icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://www.walterblaire.com" target="_blank">WalterBlaire.com</a>
+									&mdash; presence website for book author
+								</div>
+								<div class="extra text">
+									Content, layout, and design using Hugo static site builder and a custom CSS framework
+								</div>
+							</div>
 						</div>
-						<div class="ui basic violet left pointing label">
-							Content & design, implemented with Hugo
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted violet circular book icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://www.walterblaire.com/landing/eternal-front/" target="_blank">Book launch page</a>
+									&mdash; progressive spatial product landing page
+								</div>
+								<div class="extra text">
+									Javascript UI/UX, content, layout, and design, including special effects in retro footage
+								</div>
+							</div>
 						</div>
-					</a>
-					<a href="http://www.solight-design.com" target="_blank" class="recent-engagements ui labeled button" tabindex="0">
-						<div class="ui large blue button">
-							<i class="cart icon"></i> solight-design.com
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted purple circular icon-gulp icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://www.github.com/wflaschka/uiux" target="_blank">Artwork marketplace UI/UX</a>
+									&mdash; UI/UX workup of marketplace website
+								</div>
+								<div class="extra text">
+									Github repo prototyping the elements of a large-scale artwork marketplace, 
+									using handlebars.js and Gulp.js
+								</div>
+							</div>
 						</div>
-						<div class="ui basic blue left pointing label">
-							Shopify template creation with custom Semantic UI
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted grey circular cart icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="https://www.linkedin.com/in/walter-flaschka" target="_blank">Solight-Design.com</a>
+									&mdash; highly customized Liquid template on Shopify platform
+								</div>
+								<div class="extra text">
+									<em>Note:</em> Client has updated their site theme. See portfolio images on <a href="https://www.linkedin.com/in/walter-flaschka" target="_blank">LinkedIn</a>.
+								</div>
+							</div>
 						</div>
-					</a>
-					<a href="https://assistivect.com/" target="_blank" class="recent-engagements ui labeled button" tabindex="0">
-						<div class="ui large blue button">
-							<i class="world icon"></i> Basic Presence Website
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted blue circular icon-laravel icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="https://github.com/wflaschka/quizmicro" target="_blank">API endpoint</a>
+									&mdash; repository on github
+								</div>
+								<div class="extra text">
+									API service for serving gaming content built in <strong>Laravel</strong>:
+									<ul>
+										<li>Artisan import command reads from remote MongoDB database and updates local MariaDB/MySQL database.</li>
+										<li>Handles API requests for quiz category and quiz questions, tracks client use of API methods.</li>
+										<li>OAuth2 authenticated login to get API keys</li>
+										<li>Data views powered by Datatables.</li>
+									</ul>
+								</div>
+							</div>
 						</div>
-						<div class="ui basic blue left pointing label">
-							Copywriting, design, implementation on free WordPress
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted blue circular wordpress icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://BlockXAdvisor.com" target="_blank">BlockXAdvisor.com</a>
+									&mdash; WordPress install for blockchain ICO firm
+								</div>
+								<div class="extra text">
+									Support and maintenance, matching layout to designer's specification
+								</div>
+							</div>
 						</div>
-					</a>
-					<div class="recent-engagements ui labeled button" tabindex="0">
-						<div class="ui large grey button">
-							<i class="sitemap icon"></i> API Microservice
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted blue circular wordpress icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://AssistiveCT.com" target="_blank">AssistiveCT.com</a>
+									&mdash; presence website on free WordPress.org 
+								</div>
+								<div class="extra text">
+									Presence website for assistive communication app for mobile devices
+								</div>
+							</div>
 						</div>
-						<div class="ui basic grey left pointing label">
-							API endpoint for existing product with OAuth2 authentication
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted grey circular cart icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://www.venture-products.com" target="_blank">Venture-Products.com</a>
+									&mdash; Shopify storefront creation
+								</div>
+								<div class="extra text">
+									Migrated client from an old hosted e-commerce site to Shopify
+								</div>
+							</div>
 						</div>
+
+						<div class="event">
+							<div class="label">
+								<i class="inverted blue circular calendar alternate icon"></i>
+							</div>
+							<div class="content">
+								<div class="summary">
+									<a class="user" href="http://www.ersvp.com" target="_blank">eRSVP.com</a>
+									&mdash; ongoing support and maintenance
+								</div>
+								<div class="extra text">
+									Venerable event registration website
+								</div>
+							</div>
+						</div>
+
 					</div>
 
 				</td>
@@ -110,8 +233,8 @@
 				<td>Languages</td>
 				<td>
 					<div class="ui huge labels">
-						<span class="ui blue label"><i class="icon-php icon"></i>PHP</span>
 						<span class="ui teal label"><i class="icon-python icon"></i>Python</span>
+						<span class="ui blue label"><i class="icon-php icon"></i>PHP</span>
 						<span class="ui purple label"><i class="icon-javascript-alt icon"></i>Javascript</span>
 						<span class="ui violet label"><i class="icon-go-alt icon"></i>Go</span>
 					</div>
@@ -142,13 +265,20 @@
 				<td>Code management</td>
 				<td>
 					<div class="ui large labels">
+						<span class="ui grey label"><i class="icon-git icon"></i>Git</span>
+						<span class="ui grey label"><i class="fork icon"></i>SVN</span>
+						<span class="ui grey label"><i class="bitbucket square icon"></i>Bitbucket</span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Build tools</td>
+				<td>
+					<div class="ui large labels">
 						<span class="ui purple label"><i class="icon-gulp-alt icon"></i>Gulp</span>
 						<span class="ui purple label"><i class="icon-npm icon"></i>npm</span>
 						<span class="ui purple label"><i class="icon-elixir icon"></i>Webpack</span>
 						<span class="ui purple label"><i class="icon-grunt icon"></i>Grunt</span>
-						<span class="ui grey label"><i class="icon-git icon"></i>Git</span>
-						<span class="ui grey label"><i class="fork icon"></i>SVN</span>
-						<span class="ui grey label"><i class="bitbucket square icon"></i>Bitbucket</span>
 					</div>
 				</td>
 			</tr>
@@ -176,7 +306,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Design</td>
+				<td>Design / Layout</td>
 				<td>
 					<div class="ui large labels">
 						<span class="ui olive label"><i class="desktop icon"></i>Photoshop</span>
@@ -236,7 +366,7 @@
 					Expertise
 					<small>
 						<br />
-						(Hover for details)
+						(Hover for labels)
 					</small>
 				</td>
 				<td>
@@ -348,10 +478,10 @@
 				<td>
 					<ul>
 						<li>Algorithmic stock trading</li>
-						<li>Shipping API integration</li>
-						<li>Sales tax and customs integration</li>
+						<li>Shipping rate lookups and integration</li>
+						<li>International sales tax, customs declarations</li>
 						<li>API endpoint development</li>
-						<li>3rd party Shopify app integration</li>
+						<li>Shopify app integration</li>
 					</ul>
 				</td>
 			</tr>
@@ -363,6 +493,9 @@
 					<ul>
 						<li>
 							Responsive UI/UX
+						</li>
+						<li>
+							Data-intensive websites and services
 						</li>
 						<li>
 							Data Mining and Visualization
@@ -387,22 +520,6 @@
 						<li>
 							eBooks &amp; self-publishing
 						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Minor Experience
-					<small>
-						<br />
-						(Seeking to increase skill)
-					</small>
-				</td>
-				<td>
-					<ul>
-						<li>Angular</li>
-						<li>React</li>
-						<li>Vue</li>
 					</ul>
 				</td>
 			</tr>
